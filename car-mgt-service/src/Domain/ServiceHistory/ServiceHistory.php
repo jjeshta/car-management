@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain;
+namespace App\Domain\ServiceHistory;
 
 use App\Domain\Car\Car;
 use Doctrine\ORM\Mapping as ORM;
