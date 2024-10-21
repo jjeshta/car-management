@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Domain\Car\ValueObject\Insurance;
 use App\Domain\Car\ValueObject\Fitness;
 use App\Domain\Car\ValueObject\RoadTax;
-use App\Domain\ServiceHistory;
+use App\Domain\ServiceHistory\ServiceHistory;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -102,7 +102,6 @@ class Car
 
     public function addServiceHistory(ServiceHistory $serviceHistory): void
     {
-        // Example additional logic: Prevent adding service histories in the future
         if ($serviceHistory->getServiceDate() > new \DateTime()) {
             throw new \Exception("Cannot add service history with a future date.");
         }

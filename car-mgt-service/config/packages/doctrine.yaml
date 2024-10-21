@@ -28,8 +28,8 @@ doctrine:
                 is_bundle: false
                 type: attribute
                 dir: '%kernel.project_dir%/src/Domain/ServiceHistory'
-                prefix: 'App\Domain\Owner'
-                alias: Owner
+                prefix: 'App\Domain\ServiceHistory'
+                alias: ServiceHistory
         controller_resolver:
             auto_mapping: false
 

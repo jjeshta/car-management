@@ -9,9 +9,11 @@ services:
       - mysql
     environment:
       - REDIS_URL=redis://redis:6379
-      - DATABASE_URL=mysql://user:password@mysql:3306/car_mgt
+      - DATABASE_URL=mysql://car_owner:pass1234@mysql:3306/car_mgt
     ports: 
       - "8000:8000"
+    networks:
+      - car_network
 
   redis:
     image: redis:latest
@@ -20,6 +22,8 @@ services:
       - "6379:6379"
     volumes:
       - redis-data:/data
+    networks:
+      - car_network
 
   mysql:
     image: mysql:latest
@@ -33,7 +37,12 @@ services:
       MYSQL_PASSWORD: pass1234
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - car_network
 
 volumes:
   redis-data:
   mysql-data:
+
+networks:
+  car_network:
