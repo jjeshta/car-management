@@ -35,4 +35,9 @@ class ServiceHistoryRepository implements ServiceHistoryRepositoryInterface
     {
         return $this->repository->findBy(['car' => $car]);
     }
+
+    public function find(int $id): ?ServiceHistory
+    {
+        return $this->repository->find($id);
+    }
 }
