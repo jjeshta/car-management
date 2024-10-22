@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Application\Car\Command;
+namespace App\Application\Command;
 
 class RemoveCarCommand
 {

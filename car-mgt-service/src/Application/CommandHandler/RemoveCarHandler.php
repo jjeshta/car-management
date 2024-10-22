@@ -1,8 +1,7 @@
 <?php
+namespace App\Application\CommandHandler;
 
-namespace App\Application\Car\CommandHandler;
-
-use App\Application\Car\Command\RemoveCarCommand;
+use App\Application\Command\RemoveCarCommand;
 use App\Domain\Car\CarRepositoryInterface;
 
 class RemoveCarHandler
