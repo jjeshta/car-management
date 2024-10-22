@@ -12,7 +12,7 @@ class FindCarsUnfitForRoadHandler {
         $this->carRepository = $carRepository;
     }
 
-    public function __invoke(FindCarsUnfitForRoadQuery $query): array {
+    public function handle(FindCarsUnfitForRoadQuery $query): array {
         try {
             return $this->carRepository->findCarsUnfitForRoad();
         } catch (\Exception $e) {

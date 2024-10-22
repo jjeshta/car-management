@@ -12,7 +12,7 @@ class RemoveServiceHistoryHandler
         private ServiceHistoryRepositoryInterface $serviceHistoryRepository
     ) {}
 
-    public function __invoke(RemoveServiceHistoryCommand $command): void
+    public function handle(RemoveServiceHistoryCommand $command): void
     {
         try {
             $serviceHistory = $this->serviceHistoryRepository->find($command->getServiceHistoryId());

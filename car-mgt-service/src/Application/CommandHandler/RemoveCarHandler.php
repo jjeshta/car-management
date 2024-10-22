@@ -11,7 +11,7 @@ class RemoveCarHandler
         private readonly CarRepositoryInterface $carRepository
     ) {}
 
-    public function __invoke(RemoveCarCommand $command): void
+    public function handle(RemoveCarCommand $command): void
     {
         try {
             $car = $this->carRepository->findByRegistrationNumber($command->getCarRegistrationNumber());
