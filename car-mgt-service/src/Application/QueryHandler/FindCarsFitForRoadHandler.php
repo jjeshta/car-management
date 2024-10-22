@@ -6,9 +6,8 @@ use App\Domain\Car\CarRepositoryInterface;
 
 class FindCarsFitForRoadHandler {
 
-    public function __construct(private CarRepositoryInterface $carRepository) {
-        $this->carRepository = $carRepository;
-    }
+    public function __construct(private CarRepositoryInterface $carRepository)
+    {}
 
     public function handle(FindCarsFitForRoadQuery $query): array {
         try {
