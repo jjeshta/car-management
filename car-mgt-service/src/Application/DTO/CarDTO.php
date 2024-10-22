@@ -1,8 +1,6 @@
 <?php
 namespace App\Application\DTO;
 
-use App\Domain\Fitness;
-use App\Domain\RoadTax;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class CarDTO {
@@ -19,19 +17,22 @@ class CarDTO {
     )]
     private string $registrationNumber;
 
-    private ?InsuranceDTO $insurance; // Optional insurance
+    #[Assert\Valid] 
+    private InsuranceDTO $insurance;
 
-    private ?FitnessDTO $fitness; // Optional fitness
+    #[Assert\Valid] 
+    private FitnessDTO $fitness;
 
-    private ?RoadTaxDTO $roadTax; 
+     #[Assert\Valid] 
+    private RoadTaxDTO $roadTax; 
     
     public function __construct(
         string $make,
         string $model,
         string $registrationNumber,
-        ?InsuranceDTO $insurance,
-        ?FitnessDTO $fitness, 
-        ?RoadTaxDTO $roadTax,
+        InsuranceDTO $insurance,
+        FitnessDTO $fitness, 
+        RoadTaxDTO $roadTax,
     ) {
         $this->make = $make;
         $this->model = $model;
@@ -53,15 +54,15 @@ class CarDTO {
         return $this->registrationNumber;
     }
 
-    public function getInsurance(): ?InsuranceDTO {
+    public function getInsurance(): InsuranceDTO {
         return $this->insurance;
     }
 
-    public function getFitness(): ?FitnessDTO {
+    public function getFitness(): FitnessDTO {
         return $this->fitness;
     }
 
-    public function getRoadTax(): ?RoadTaxDTO {
+    public function getRoadTax(): RoadTaxDTO {
         return $this->roadTax;
     }
 }

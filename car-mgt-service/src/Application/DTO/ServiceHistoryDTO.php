@@ -14,7 +14,8 @@ class ServiceHistoryDTO
 
     #[Assert\NotBlank(message: "Date should not be blank.")]
     #[Assert\LessThanOrEqual("today", message: "Date cannot be in the future.")]
-    private \DateTimeInterface $date;
+    #[Assert\DateTime(format: "Y-m-d H:i:s", message: "This value is not a valid datetime. The correct format is Y-m-d H:i:s.")]
+    private string $date;
 
     #[Assert\NotBlank(message: "Description should not be blank.")]
     #[Assert\Length(
@@ -25,7 +26,7 @@ class ServiceHistoryDTO
 
     public function __construct(
         string $carRegistrationNumber,
-        \DateTimeInterface $date,
+        string $date,
         string $description
     ) {
         $this->carRegistrationNumber = $carRegistrationNumber;
@@ -38,7 +39,7 @@ class ServiceHistoryDTO
         return $this->carRegistrationNumber;
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getDate(): string
     {
         return $this->date;
     }
