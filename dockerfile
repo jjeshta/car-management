@@ -23,12 +23,20 @@ WORKDIR /var/www/html
 
 # Copy the Symfony project files into the container
 COPY ./car-mgt-service/ .
+COPY ./car-mgt-service/.env . 
 
+RUN mkdir -p var/cache var/log var/sessions \
+    && chown -R www-data:www-data var
 # Install project dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+# RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html/var
 
+# Change user and group ID for www-data
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+
+# Switch to www-data user
 USER www-data
 
 CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]

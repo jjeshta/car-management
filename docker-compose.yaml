@@ -3,10 +3,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
     volumes:
       - ./car-mgt-service:/var/www/html
     networks:
       - car_network
+    user: www-data
 
   mysql:
     image: mysql:latest
