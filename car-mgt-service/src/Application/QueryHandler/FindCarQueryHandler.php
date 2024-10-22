@@ -16,7 +16,7 @@ class FindCarHandler {
         $this->validator = $validator;
     }
 
-    public function __invoke(FindCarQuery $query) {
+    public function handle(FindCarQuery $query) {
         $errors = $this->validator->validate($query);
         if (count($errors) > 0) {
             throw new ValidationFailedException($query, $errors);

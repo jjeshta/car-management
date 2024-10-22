@@ -11,15 +11,18 @@ use App\Domain\Car\CarRepositoryInterface;
 use App\Domain\Car\ValueObject\Insurance;
 use App\Domain\Car\ValueObject\Fitness;
 use App\Domain\Car\ValueObject\RoadTax;
+use App\Trait\DateTimeConverterTrait;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Exception\ValidationFailedException;
 
 class AddCarHandler
-{
+{   
+    use DateTimeConverterTrait;
+
     public function __construct(private CarRepositoryInterface $carRepository, private ValidatorInterface $validator)
     {}
 
-    public function __invoke(AddCarCommand $command): int
+    public function handle(AddCarCommand $command): ?int
     {
         $carDTO = $command->getCarDTO();
 
@@ -33,9 +36,9 @@ class AddCarHandler
                 $carDTO->getMake(),
                 $carDTO->getModel(),
                 $carDTO->getRegistrationNumber(),
-                $this->createInsurance($carDTO->getInsurance()),
-                $this->createFitness($carDTO->getFitness()),
-                $this->createRoadTax($carDTO->getRoadTax())
+                $carDTO->getInsurance() !== null ? $this->createInsurance($carDTO->getInsurance()) : null,
+                $carDTO->getFitness() !== null ? $this->createFitness($carDTO->getFitness()) : null,
+                $carDTO->getRoadTax() !== null ? $this->createRoadTax($carDTO->getRoadTax()) : null
             );
 
             $this->carRepository->save($car);
@@ -54,9 +57,9 @@ class AddCarHandler
         return new Insurance(
             $insuranceDTO->getInsurer(),
             $insuranceDTO->getPolicyNumber(),
-            $insuranceDTO->getDateIssued(),
-            $insuranceDTO->getDateExpiry(),
-            $insuranceDTO->getDateStart()
+            $this->convertToDateTime($insuranceDTO->getDateIssued()),
+            $this->convertToDateTime($insuranceDTO->getDateExpiry()),
+            $this->convertToDateTime($insuranceDTO->getDateStart())
         );
     }
 
@@ -67,8 +70,8 @@ class AddCarHandler
         }
 
         return new Fitness(
-            $fitnessDTO->getIssued(),
-            $fitnessDTO->getValidUntil()
+             $this->convertToDateTime($fitnessDTO->getIssued()),
+             $this->convertToDateTime($fitnessDTO->getValidUntil())
         );
     }
 
@@ -79,8 +82,8 @@ class AddCarHandler
         }
 
         return new RoadTax(
-            $roadTaxDTO->getIssued(),
-            $roadTaxDTO->getValidUntil()
+            $this->convertToDateTime($roadTaxDTO->getIssued()),
+            $this->convertToDateTime($roadTaxDTO->getValidUntil())
         );
     }
 }

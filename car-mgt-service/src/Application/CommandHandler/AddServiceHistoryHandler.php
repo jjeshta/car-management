@@ -6,18 +6,21 @@ use App\Application\Command\AddServiceHistoryCommand;
 use App\Domain\ServiceHistory\ServiceHistory;
 use App\Domain\ServiceHistory\ServiceHistoryRepositoryInterface;
 use App\Domain\Car\CarRepositoryInterface;
+use App\Trait\DateTimeConverterTrait;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Exception\ValidationFailedException;
 
 class AddServiceHistoryHandler
 {
+    use DateTimeConverterTrait;
+
     public function __construct(
         private ServiceHistoryRepositoryInterface $serviceHistoryRepository,
         private CarRepositoryInterface $carRepository,
         private ValidatorInterface $validator
     ) {}
 
-    public function __invoke(AddServiceHistoryCommand $command): void
+    public function handle(AddServiceHistoryCommand $command): void
     {
         $serviceDTO = $command->getServiceHistoryDTO();
 
@@ -34,7 +37,7 @@ class AddServiceHistoryHandler
 
         $serviceHistory = new ServiceHistory(
            $serviceDTO->getDescription(),
-           $serviceDTO->getDate(),
+           $this->convertToDateTime($serviceDTO->getDate()),
             $car,
         );
 
