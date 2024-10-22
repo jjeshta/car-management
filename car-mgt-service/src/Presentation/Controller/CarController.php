@@ -3,7 +3,9 @@
 namespace App\Presentation\Controller;
 
 use App\Application\Command\AddCarCommand;
+use App\Application\Command\RemoveCarCommand;
 use App\Application\CommandHandler\AddCarHandler;
+use App\Application\CommandHandler\RemoveCarHandler;
 use App\Application\DTO\CarDTO;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -42,6 +44,21 @@ class CarController extends AbstractController
                 'status' => 'error',
                 'message' => $e->getMessage(),
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    #[Route('/api/car/{registrationNumber}', methods: ['DELETE'])]
+    public function deleteCar(string $registrationNumber, RemoveCarHandler $handler): JsonResponse
+    {
+        try {
+            $command = new RemoveCarCommand($registrationNumber);
+            $handler->handle($command);
+
+            return new JsonResponse(['message' => 'Car removed successfully.'], Response::HTTP_OK);
+        } catch (\InvalidArgumentException $e) {
+            return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], Response::HTTP_NOT_FOUND);
+        } catch (\RuntimeException $e) {
+            return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
     
