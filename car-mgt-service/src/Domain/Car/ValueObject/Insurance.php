@@ -62,4 +62,9 @@ class Insurance
         return $this->dateStart;
     }
 
+    public function isValid(): bool
+    {
+        return new \DateTime() <= $this->dateExpiry;
+    }
+
 }
