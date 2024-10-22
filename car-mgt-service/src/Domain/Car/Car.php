@@ -133,4 +133,9 @@ class Car
         }
         return $histories;
     }
+
+    public function isFitForRoad(): bool
+    {
+        return $this->insurance->isValid() && $this->fitness->isValid() && $this->roadTax->isValid();
+    }
 }

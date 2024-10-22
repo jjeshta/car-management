@@ -6,4 +6,6 @@ interface CarRepositoryInterface {
     public function save(Car $car): void;
     public function remove(Car $car): void;
     public function findByRegistrationNumber(string $registrationNumber): ?Car;
+    public function findCarsFitForRoad(): array;
+    public function findCarsUnfitForRoad(): array;
 }
