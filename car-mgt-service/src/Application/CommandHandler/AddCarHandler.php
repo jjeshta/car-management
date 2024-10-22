@@ -26,19 +26,19 @@ class AddCarHandler
     {
         $carDTO = $command->getCarDTO();
 
-        $errors = $this->validator->validate($carDTO);
-        if (count($errors) > 0) {
-            throw new ValidationFailedException($carDTO, $errors);
-        }
-
         try {
+            $existingCar = $this->carRepository->findByRegistrationNumber($carDTO->getRegistrationNumber());
+            if ($existingCar) {
+                throw new \DomainException("A car with this registration number '{$carDTO->getRegistrationNumber()}' already exists.");
+            }
+
             $car = new Car(
                 $carDTO->getMake(),
                 $carDTO->getModel(),
                 $carDTO->getRegistrationNumber(),
-                $carDTO->getInsurance() !== null ? $this->createInsurance($carDTO->getInsurance()) : null,
-                $carDTO->getFitness() !== null ? $this->createFitness($carDTO->getFitness()) : null,
-                $carDTO->getRoadTax() !== null ? $this->createRoadTax($carDTO->getRoadTax()) : null
+                $this->createInsurance($carDTO->getInsurance()),
+                $this->createFitness($carDTO->getFitness()),
+                $this->createRoadTax($carDTO->getRoadTax())
             );
 
             $this->carRepository->save($car);
