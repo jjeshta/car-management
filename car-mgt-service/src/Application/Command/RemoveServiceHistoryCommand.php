@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\ServiceHistory\Command;
+namespace App\Application\Command;
 
 class RemoveServiceHistoryCommand
 {

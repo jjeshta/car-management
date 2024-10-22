@@ -138,4 +138,10 @@ class Car
     {
         return $this->insurance->isValid() && $this->fitness->isValid() && $this->roadTax->isValid();
     }
+
+    public function updateDetails(string $make, string $model): void
+    {
+        $this->make = $make !== null ? $make : $this->make;
+        $this->model = $model !== null ? $model : $this->model;
+    }
 }

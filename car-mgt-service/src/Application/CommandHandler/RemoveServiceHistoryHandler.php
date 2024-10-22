@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Application\ServiceHistory\Command;
+namespace App\Application\Command;
 
 use App\Domain\ServiceHistory\ServiceHistoryRepositoryInterface;
 use App\Domain\ServiceHistory\ServiceHistory;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 class RemoveServiceHistoryHandler
 {
