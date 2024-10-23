@@ -7,6 +7,7 @@ services:
       - "8000:8000"
     volumes:
       - ./car-mgt-service:/var/www/html
+      - ./logs:/var/www/html/var/log
     networks:
       - car_network
     user: www-data

@@ -22,6 +22,9 @@ services:
 
 
     App\Domain\ServiceHistory\ServiceHistoryRepositoryInterface: '@App\Infrastructure\Repository\ServiceHistoryRepository'
-
+    App\Application\Service\LoggerService:
+        arguments:
+            $appLogger: '@monolog.logger.app_info'
+            $errorLogger: '@monolog.logger.app_error'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
