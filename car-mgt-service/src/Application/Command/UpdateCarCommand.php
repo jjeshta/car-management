@@ -14,12 +14,12 @@ class UpdateCarCommand
         return $this->registrationNumber;
     }
 
-    public function getMake(): string
+    public function getMake(): ?string
     {
         return $this->make;
     }
 
-    public function getModel(): string
+    public function getModel(): ?string
     {
         return $this->model;
     }
