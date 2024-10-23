@@ -6,6 +6,7 @@ use App\Application\Command\AddCarCommand;
 use App\Application\DTO\FitnessDTO;
 use App\Application\DTO\InsuranceDTO;
 use App\Application\DTO\RoadTaxDTO;
+use App\Application\Service\LoggerService;
 use App\Domain\Car\Car;
 use App\Domain\Car\CarRepositoryInterface;
 use App\Domain\Car\ValueObject\Insurance;
@@ -13,25 +14,31 @@ use App\Domain\Car\ValueObject\Fitness;
 use App\Domain\Car\ValueObject\RoadTax;
 use App\Trait\DateTimeConverterTrait;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Validator\Exception\ValidationFailedException;
 
 class AddCarHandler
-{   
+{
     use DateTimeConverterTrait;
 
-    public function __construct(private CarRepositoryInterface $carRepository, private ValidatorInterface $validator)
-    {}
+    public function __construct(
+        private CarRepositoryInterface $carRepository,
+        private ValidatorInterface $validator,
+        private readonly LoggerService $loggerService
+    ) {}
 
     public function handle(AddCarCommand $command): ?int
     {
-        $carDTO = $command->getCarDTO();
 
+        $carDTO = $command->getCarDTO();
         try {
+            $this->loggerService->logInfo("Starting to handle AddCarCommand for registration number '{$carDTO->getRegistrationNumber()}'");
+
             $existingCar = $this->carRepository->findByRegistrationNumber($carDTO->getRegistrationNumber());
             if ($existingCar) {
+                $this->loggerService->logError("Duplicate registration number detected: '{$carDTO->getRegistrationNumber()}'");
                 throw new \DomainException("A car with this registration number '{$carDTO->getRegistrationNumber()}' already exists.");
             }
 
+        
             $car = new Car(
                 $carDTO->getMake(),
                 $carDTO->getModel(),
@@ -42,8 +49,12 @@ class AddCarHandler
             );
 
             $this->carRepository->save($car);
+
+            $this->loggerService->logInfo("Car with registration number '{$carDTO->getRegistrationNumber()}' added successfully.");
+
             return $car->getId();
         } catch (\Exception $e) {
+            $this->loggerService->logError('Exception thrown '. $e->getMessage());
             throw new \RuntimeException('An error occurred: ' . $e->getMessage());
         }
     }
@@ -70,8 +81,8 @@ class AddCarHandler
         }
 
         return new Fitness(
-             $this->convertToDateTime($fitnessDTO->getIssued()),
-             $this->convertToDateTime($fitnessDTO->getValidUntil())
+            $this->convertToDateTime($fitnessDTO->getIssued()),
+            $this->convertToDateTime($fitnessDTO->getValidUntil())
         );
     }
 
