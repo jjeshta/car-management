@@ -1,0 +1,130 @@
+
+##teamcity[testCount count='21' flowId='177']
+
+##teamcity[testSuiteStarted name='/var/www/html/phpunit.xml' flowId='177']
+
+##teamcity[testSuiteStarted name='Application Tests' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\Command\AddServiceHistoryCommandTest' locationHint='php_qn:///var/www/html/tests/Application/Command/AddServiceHistoryCommandTest.php::\App\Tests\Application\Command\AddServiceHistoryCommandTest' flowId='177']
+
+##teamcity[testStarted name='testAddServiceHistoryCommand' locationHint='php_qn:///var/www/html/tests/Application/Command/AddServiceHistoryCommandTest.php::\App\Tests\Application\Command\AddServiceHistoryCommandTest::testAddServiceHistoryCommand' flowId='177']
+
+##teamcity[testFinished name='testAddServiceHistoryCommand' duration='3' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\Command\AddServiceHistoryCommandTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\CommandHandler\RemoveCarHandlerTest' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php::\App\Tests\Application\CommandHandler\RemoveCarHandlerTest' flowId='177']
+
+##teamcity[testStarted name='testHandleSuccessfullyRemovesCar' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php::\App\Tests\Application\CommandHandler\RemoveCarHandlerTest::testHandleSuccessfullyRemovesCar' flowId='177']
+
+##teamcity[testFinished name='testHandleSuccessfullyRemovesCar' duration='3' flowId='177']
+
+##teamcity[testStarted name='testHandleThrowsRuntimeExceptionOnError' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php::\App\Tests\Application\CommandHandler\RemoveCarHandlerTest::testHandleThrowsRuntimeExceptionOnError' flowId='177']
+
+##teamcity[testFinished name='testHandleThrowsRuntimeExceptionOnError' duration='1' flowId='177']
+
+##teamcity[testStarted name='testHandleCarNotFound' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php::\App\Tests\Application\CommandHandler\RemoveCarHandlerTest::testHandleCarNotFound' flowId='177']
+
+##teamcity[testFinished name='testHandleCarNotFound' duration='1' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\CommandHandler\RemoveCarHandlerTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Domain\Car\CarTest' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest' flowId='177']
+
+##teamcity[testStarted name='testIsFitForRoad' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testIsFitForRoad' flowId='177']
+
+##teamcity[testFinished name='testIsFitForRoad' duration='0' flowId='177']
+
+##teamcity[testStarted name='testAddServiceHistory' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testAddServiceHistory' flowId='177']
+
+##teamcity[testFinished name='testAddServiceHistory' duration='1' flowId='177']
+
+##teamcity[testStarted name='testUpdateDetails' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testUpdateDetails' flowId='177']
+
+##teamcity[testFinished name='testUpdateDetails' duration='0' flowId='177']
+
+##teamcity[testStarted name='testCarInitialization' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testCarInitialization' flowId='177']
+
+##teamcity[testFinished name='testCarInitialization' duration='0' flowId='177']
+
+##teamcity[testStarted name='testCannotAddServiceHistoryWithFutureDate' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testCannotAddServiceHistoryWithFutureDate' flowId='177']
+
+##teamcity[testFinished name='testCannotAddServiceHistoryWithFutureDate' duration='0' flowId='177']
+
+##teamcity[testStarted name='testAddFutureServiceHistory' locationHint='php_qn:///var/www/html/tests/Domain/Car/CarTest.php::\App\Tests\Domain\Car\CarTest::testAddFutureServiceHistory' flowId='177']
+
+##teamcity[testFinished name='testAddFutureServiceHistory' duration='0' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Domain\Car\CarTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\CommandHandler\UpdateCarHandlerTest' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php::\App\Tests\Application\CommandHandler\UpdateCarHandlerTest' flowId='177']
+
+##teamcity[testStarted name='testHandleThrowsRuntimeExceptionOnError' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php::\App\Tests\Application\CommandHandler\UpdateCarHandlerTest::testHandleThrowsRuntimeExceptionOnError' flowId='177']
+
+##teamcity[testFinished name='testHandleThrowsRuntimeExceptionOnError' duration='1' flowId='177']
+
+##teamcity[testStarted name='testHandleSuccessfullyUpdatesCar' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php::\App\Tests\Application\CommandHandler\UpdateCarHandlerTest::testHandleSuccessfullyUpdatesCar' flowId='177']
+
+##teamcity[testFinished name='testHandleSuccessfullyUpdatesCar' duration='1' flowId='177']
+
+##teamcity[testStarted name='testHandleCarNotFound' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php::\App\Tests\Application\CommandHandler\UpdateCarHandlerTest::testHandleCarNotFound' flowId='177']
+
+##teamcity[testFinished name='testHandleCarNotFound' duration='1' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\CommandHandler\UpdateCarHandlerTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\Command\AddCarCommandTest' locationHint='php_qn:///var/www/html/tests/Application/Command/AddCarCommandTest.php::\App\Tests\Application\Command\AddCarCommandTest' flowId='177']
+
+##teamcity[testStarted name='testAddCarCommand' locationHint='php_qn:///var/www/html/tests/Application/Command/AddCarCommandTest.php::\App\Tests\Application\Command\AddCarCommandTest::testAddCarCommand' flowId='177']
+
+##teamcity[testFinished name='testAddCarCommand' duration='1' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\Command\AddCarCommandTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\Command\RemoveCarCommandTest' locationHint='php_qn:///var/www/html/tests/Application/Command/RemoveCarCommandTest.php::\App\Tests\Application\Command\RemoveCarCommandTest' flowId='177']
+
+##teamcity[testStarted name='testRemoveCarCommand' locationHint='php_qn:///var/www/html/tests/Application/Command/RemoveCarCommandTest.php::\App\Tests\Application\Command\RemoveCarCommandTest::testRemoveCarCommand' flowId='177']
+
+##teamcity[testFinished name='testRemoveCarCommand' duration='0' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\Command\RemoveCarCommandTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\Command\RemoveServiceHistoryCommandTest' locationHint='php_qn:///var/www/html/tests/Application/Command/RemoveServiceHistoryCommandTest.php::\App\Tests\Application\Command\RemoveServiceHistoryCommandTest' flowId='177']
+
+##teamcity[testStarted name='testRemoveServiceHistoryCommand' locationHint='php_qn:///var/www/html/tests/Application/Command/RemoveServiceHistoryCommandTest.php::\App\Tests\Application\Command\RemoveServiceHistoryCommandTest::testRemoveServiceHistoryCommand' flowId='177']
+
+##teamcity[testFinished name='testRemoveServiceHistoryCommand' duration='1' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\Command\RemoveServiceHistoryCommandTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\CommandHandler\AddCarHandlerTest' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php::\App\Tests\Application\CommandHandler\AddCarHandlerTest' flowId='177']
+
+##teamcity[testStarted name='testHandleThrowsRuntimeExceptionOnGeneralError' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php::\App\Tests\Application\CommandHandler\AddCarHandlerTest::testHandleThrowsRuntimeExceptionOnGeneralError' flowId='177']
+
+##teamcity[testFinished name='testHandleThrowsRuntimeExceptionOnGeneralError' duration='1' flowId='177']
+
+##teamcity[testStarted name='testHandleThrowsDomainExceptionForDuplicateRegistration' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php::\App\Tests\Application\CommandHandler\AddCarHandlerTest::testHandleThrowsDomainExceptionForDuplicateRegistration' flowId='177']
+
+##teamcity[testFinished name='testHandleThrowsDomainExceptionForDuplicateRegistration' duration='0' flowId='177']
+
+##teamcity[testStarted name='testHandleSuccessfullyAddsCar' locationHint='php_qn:///var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php::\App\Tests\Application\CommandHandler\AddCarHandlerTest::testHandleSuccessfullyAddsCar' flowId='177']
+
+##teamcity[testFinished name='testHandleSuccessfullyAddsCar' duration='1' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\CommandHandler\AddCarHandlerTest' flowId='177']
+
+##teamcity[testSuiteStarted name='App\Tests\Application\Command\UpdateCarCommandTest' locationHint='php_qn:///var/www/html/tests/Application/Command/UpdateCarCommandTest.php::\App\Tests\Application\Command\UpdateCarCommandTest' flowId='177']
+
+##teamcity[testStarted name='testUpdateCarCommand' locationHint='php_qn:///var/www/html/tests/Application/Command/UpdateCarCommandTest.php::\App\Tests\Application\Command\UpdateCarCommandTest::testUpdateCarCommand' flowId='177']
+
+##teamcity[testFinished name='testUpdateCarCommand' duration='0' flowId='177']
+
+##teamcity[testStarted name='testUpdateCarCommandWithNullValues' locationHint='php_qn:///var/www/html/tests/Application/Command/UpdateCarCommandTest.php::\App\Tests\Application\Command\UpdateCarCommandTest::testUpdateCarCommandWithNullValues' flowId='177']
+
+##teamcity[testFinished name='testUpdateCarCommandWithNullValues' duration='0' flowId='177']
+
+##teamcity[testSuiteFinished name='App\Tests\Application\Command\UpdateCarCommandTest' flowId='177']
+
+##teamcity[testSuiteFinished name='Application Tests' flowId='177']
+
+##teamcity[testSuiteFinished name='/var/www/html/phpunit.xml' flowId='177']
