@@ -24,14 +24,6 @@ class AddCarHandlerTest extends TestCase
     private ValidatorInterface $validator;
     private LoggerService $loggerService;
     private AddCarHandler $addCarHandler;
-    private Insurance $insuranceMock;
-    private Fitness $fitnessMock;
-    private RoadTax $roadTexMock;
-
-    private InsuranceDTO $insuranceDTOMock;
-    private FitnessDTO $fitnessDTOMock;
-    private RoadTaxDTO $roadTexDTOMock;
-
 
     protected function setUp(): void
     {
@@ -39,14 +31,6 @@ class AddCarHandlerTest extends TestCase
         $this->validator = $this->createMock(ValidatorInterface::class);
         $this->loggerService = $this->createMock(LoggerService::class);
         $this->addCarHandler = new AddCarHandler($this->carRepository, $this->validator, $this->loggerService);
-        $this->insuranceMock = $this->createMock(Insurance::class);
-        $this->fitnessMock = $this->createMock(Fitness::class);
-        $this->roadTexMock = $this->createMock(RoadTax::class);
-
-        $this->insuranceDTOMock = $this->createMock(InsuranceDTO::class);
-        $this->fitnessDTOMock = $this->createMock(FitnessDTO::class);
-        $this->roadTexDTOMock = $this->createMock(RoadTaxDTO::class);
-
     }
 
     public function testHandleSuccessfullyAddsCar(): void
