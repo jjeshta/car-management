@@ -35,7 +35,7 @@ class AddCarHandler
             $existingCar = $this->carRepository->findByRegistrationNumber($carDTO->getRegistrationNumber());
             if ($existingCar) {
                 $this->loggerService->logError("Duplicate registration number detected: '{$carDTO->getRegistrationNumber()}'");
-                throw new \DomainException("A car with this registration number '{$carDTO->getRegistrationNumber()}' already exists.");
+                throw new \RuntimeException("A car with this registration number '{$carDTO->getRegistrationNumber()}' already exists.");
             }
 
         

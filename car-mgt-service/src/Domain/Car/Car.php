@@ -141,7 +141,7 @@ class Car
 
     public function updateDetails(string $make, string $model): void
     {
-        $this->make = $make !== null ? $make : $this->make; // Update make only if not null
+        $this->make = $make !== null ? $make : $this->make;
         $this->model = $model !== null ? $model : $this->model;
     }
 }
