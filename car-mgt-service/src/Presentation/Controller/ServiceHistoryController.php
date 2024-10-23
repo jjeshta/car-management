@@ -3,6 +3,8 @@
 namespace App\Presentation\Controller;
 
 use App\Application\Command\AddServiceHistoryCommand;
+use App\Application\Command\RemoveServiceHistoryCommand;
+use App\Application\CommandHandler\RemoveServiceHistoryHandler;
 use App\Application\CommandHandler\AddServiceHistoryHandler;
 use App\Application\DTO\ServiceHistoryDTO;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,6 +42,19 @@ class ServiceHistoryController extends AbstractController
                 'status' => 'error',
                 'message' => 'An error occurred: ' . $e->getMessage(),
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    #[Route('/api/service-history/{id}', methods: ['DELETE'])]
+    public function delete(int $id, RemoveServiceHistoryHandler $handler): JsonResponse
+    {
+        try {
+            $command = new RemoveServiceHistoryCommand($id);
+            $handler->handle($command);
+
+            return new JsonResponse(['status' => 'success', 'message' => 'Service history deleted successfully.'], JsonResponse::HTTP_OK);
+        } catch (\Exception $e) {
+            return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], JsonResponse::HTTP_NOT_FOUND);
         }
     }
 }
