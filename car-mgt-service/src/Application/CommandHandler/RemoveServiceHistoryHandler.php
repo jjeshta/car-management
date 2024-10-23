@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Application\Command;
+namespace App\Application\CommandHandler;
 
+use App\Application\Command\RemoveServiceHistoryCommand;
 use App\Domain\ServiceHistory\ServiceHistoryRepositoryInterface;
 use App\Domain\ServiceHistory\ServiceHistory;
 
@@ -20,7 +21,7 @@ class RemoveServiceHistoryHandler
                 $this->serviceHistoryRepository->remove($serviceHistory);
             }
         } catch (\Throwable $e) {
-            throw new \RuntimeException('An error occurred: ' . $e->getMessage());
+            throw new \RuntimeException('An error occurred: service couldnot be removed ' . $e->getMessage());
         }
     }
 }
