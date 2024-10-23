@@ -51,7 +51,4 @@ class ServiceHistory {
         return $this->serviceDate;
     }
 
-    public function getCar(): Car {
-        return $this->car;
-    }
 }

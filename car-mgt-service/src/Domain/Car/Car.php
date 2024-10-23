@@ -117,9 +117,9 @@ class Car
         }
     }
 
-    public function getServiceHistories(): Collection
+    public function getServiceHistories(): array
     {
-        return $this->serviceHistories;
+        return $this->serviceHistories->toArray();
     }
 
     public function listServiceHistories(): array
@@ -141,7 +141,7 @@ class Car
 
     public function updateDetails(string $make, string $model): void
     {
-        $this->make = $make !== null ? $make : $this->make;
+        $this->make = $make !== null ? $make : $this->make; // Update make only if not null
         $this->model = $model !== null ? $model : $this->model;
     }
 }
