@@ -1,12 +1,15 @@
 <?php
 namespace App\Application\DTO;
 
+use App\Trait\DateTimeConverterTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class RoadTaxDTO
 {
+    use  DateTimeConverterTrait;
+
     #[Assert\NotBlank(message: "Issued date should not be blank.")]
     #[Assert\DateTime]
     #[Assert\LessThanOrEqual(value: "today", message: "Date issued cannot be in the future.")]
@@ -36,11 +39,18 @@ class RoadTaxDTO
     #[Callback]
     public function validateDates(ExecutionContextInterface $context): void
     {
+        if (!$this->isValidDate($this->issued)) {
+            $context->buildViolation("This value is not a valid datetime for 'issued'. The correct format is Y-m-d H:i:s.")
+                ->atPath('issued')
+                ->addViolation();
+            return;
+        }
+
         $issuedDate = new \DateTime($this->issued);
         $today = new \DateTime();
 
         if ($issuedDate > $today) {
-            $context->buildViolation("Date issued cannot be in the future for road tax")
+            $context->buildViolation("Date issued cannot be in the future.")
                 ->atPath('issued')
                 ->addViolation();
         }

@@ -59,12 +59,8 @@ class AddCarHandler
         }
     }
 
-    private function createInsurance(?InsuranceDTO $insuranceDTO): ?Insurance
+    private function createInsurance(InsuranceDTO $insuranceDTO): ?Insurance
     {
-        if ($insuranceDTO === null) {
-            return null;
-        }
-
         return new Insurance(
             $insuranceDTO->getInsurer(),
             $insuranceDTO->getPolicyNumber(),
@@ -74,24 +70,16 @@ class AddCarHandler
         );
     }
 
-    private function createFitness(?FitnessDTO $fitnessDTO): ?Fitness
+    private function createFitness(FitnessDTO $fitnessDTO): ?Fitness
     {
-        if ($fitnessDTO === null) {
-            return null;
-        }
-
         return new Fitness(
             $this->convertToDateTime($fitnessDTO->getIssued()),
             $this->convertToDateTime($fitnessDTO->getValidUntil())
         );
     }
 
-    private function createRoadTax(?RoadTaxDTO $roadTaxDTO): ?RoadTax
+    private function createRoadTax(RoadTaxDTO $roadTaxDTO): ?RoadTax
     {
-        if ($roadTaxDTO === null) {
-            return null;
-        }
-
         return new RoadTax(
             $this->convertToDateTime($roadTaxDTO->getIssued()),
             $this->convertToDateTime($roadTaxDTO->getValidUntil())
