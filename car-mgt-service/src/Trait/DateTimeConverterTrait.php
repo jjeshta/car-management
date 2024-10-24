@@ -17,4 +17,10 @@ trait DateTimeConverterTrait
         }
         return $dateTime;
     }
+
+    private function isValidDate(string $date, string $format = 'Y-m-d H:i:s'): bool
+    {
+        $dateTime = \DateTime::createFromFormat($format, $date);
+        return $dateTime && $dateTime->format($format) === $date;
+    }
 }

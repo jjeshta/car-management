@@ -2,12 +2,15 @@
 
 namespace App\Application\DTO;
 
+use App\Trait\DateTimeConverterTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class InsuranceDTO
 {
+    use  DateTimeConverterTrait;
+
     #[Assert\NotBlank(message: "Insurer should not be blank.")]
     private string $insurer;
 
@@ -68,6 +71,13 @@ class InsuranceDTO
     #[Callback]
     public function validateDates(ExecutionContextInterface $context): void
     {
+        if (!$this->isValidDate($this->dateIssued)) {
+            $context->buildViolation("This value is not a valid datetime for 'dateIssued'. The correct format is Y-m-d H:i:s.")
+                ->atPath('dateIssued')
+                ->addViolation();
+            return;
+        }
+
         $issuedDate = new \DateTime($this->dateIssued);
         $today = new \DateTime();
 
