@@ -15,6 +15,7 @@ use App\Application\Query\FindCarsUnfitForRoadQuery;
 use App\Application\QueryHandler\FindCarHandler;
 use App\Application\QueryHandler\FindCarsFitForRoadHandler;
 use App\Application\QueryHandler\FindCarsUnfitForRoadHandler;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CarController extends AbstractController
 {
+    protected  ContainerInterface $container;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 
     #[Route('/api/car', methods: ['POST'])]
     public function createCar(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, AddCarHandler $handler): JsonResponse
@@ -36,9 +43,14 @@ class CarController extends AbstractController
 
             $errors = $validator->validate($carDTO);
             if (count($errors) > 0) {
+                $errorMessages = [];
+                foreach ($errors as $violation) {
+                    $errorMessages[] = preg_replace('/^Object\(.*?\)\./', '', $violation->getPropertyPath()) . ': ' . $violation->getMessage();
+                }
+
                 return new JsonResponse([
                     'status' => 'error',
-                    'errors' => (string) $errors,
+                    'errors' => $errorMessages
                 ], Response::HTTP_BAD_REQUEST);
             }
 
@@ -63,9 +75,14 @@ class CarController extends AbstractController
 
             $errors = $validator->validate($query);
             if (count($errors) > 0) {
+                $errorMessages = [];
+                foreach ($errors as $violation) {
+                    $errorMessages[] = preg_replace('/^Object\(.*?\)\./', '', $violation->getPropertyPath()) . ': ' . $violation->getMessage();
+                }
+
                 return new JsonResponse([
                     'status' => 'error',
-                    'errors' => (string) $errors,
+                    'errors' => $errorMessages
                 ], JsonResponse::HTTP_BAD_REQUEST);
             }
 
@@ -77,6 +94,7 @@ class CarController extends AbstractController
 
             return $this->json($car, JsonResponse::HTTP_OK);
         } catch (\Throwable $e) {
+
             return new JsonResponse([
                 'status' => 'error',
                 'message' => 'An error occurred while retrieving the car: ' . $e->getMessage(),
@@ -89,7 +107,7 @@ class CarController extends AbstractController
     {
         try {
             $query = new FindCarsFitForRoadQuery();
-            
+
             $cars = $handler->handle($query);
 
             return $this->json($cars, JsonResponse::HTTP_OK);
@@ -106,7 +124,7 @@ class CarController extends AbstractController
     {
         try {
             $query = new FindCarsUnfitForRoadQuery();
-            
+
             $cars = $handler->handle($query);
 
             return $this->json($cars, JsonResponse::HTTP_OK);
