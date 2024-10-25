@@ -124,7 +124,9 @@ Note: local address is: http://localhost:8000/
        }
      }
      ```
+
    - **Example Request**:
+
      ```json
      {
        "make": "Mercedes",
@@ -172,12 +174,13 @@ Note: local address is: http://localhost:8000/
     Example Request:
     To update the car with registration number `2376 EZ 15`, you would make a request to: http://localhost:8000/api/cars/2376%20EZ%2015
     with body:
+
     ```json
     {
         "make": "NewMake",
         "model": "NewModel"
     }
-    ```json
+    ```
 
     3. **Get Car Details**
    - **Endpoint**: `GET /api/cars/{registrationNumber}`
