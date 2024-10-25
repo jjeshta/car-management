@@ -62,21 +62,22 @@ Log files are available outside the project directory to ensure easier access. T
     Replace {USER} with your username.
 
 4. Build the Docker containers and start the application in detached mode
-  ```bash
+
+    ```bash
     docker-compose build
     ```
     and 
     ```bash
     docker-compose up -d
     ```
-5. Access the PHP container:
- ```bash
-    docker exec -it <php-container-name> bash
 
+5. Access the PHP container:
+    ```bash
+    docker exec -it <php-container-name> bash
     ```
 
 6. Do the composer install in the php container  
- ```bash
+    ```bash
     composer install
     ```
 
@@ -308,3 +309,24 @@ Note: local address is: http://localhost:8000/
      ```http
      DELETE http://localhost:8000/api/service-history/2
      ```
+
+
+## Running Tests with Coverage
+To run PHPUnit tests with code coverage analysis:
+
+    ```
+    XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-html coverage-html/
+
+    ```
+This command will generate a code coverage report in HTML format, which you can open to review coverage details
+    
+### Viewing Coverage Reports
+Once the command completes, you can open the index.html file located in the coverage-html/ directory to view the code coverage in a visual format:
+
+> `coverage-html/index.html`
+
+This report provides a detailed breakdown of which lines of code are covered by tests, along with the percentage of coverage across files and classes.G_MODE=coverage php vendor/bin/phpunit --coverage-html coverage-html/
+
+
+## Thank you.
+
