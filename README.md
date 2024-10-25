@@ -49,13 +49,19 @@ Log files are available outside the project directory to ensure easier access. T
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/car-management-app.git
+   git clone git@github.com:jjeshta/car-management.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd car-management-app
+    cd car-management
     ```
-3. Configure your database settings in the .env file. and make sure the `./logs` folder has the write permissions if not do a chown
+3. Configure your database settings in the .env file. 
+    ```bash
+    cd touch /car-mgt-service/.env
+    ```
+
+and make sure the `./logs` folder has the write permissions if not do a chown
+
     ```
     chown -R {USER}:{USER} ./logs
     ```     
@@ -80,7 +86,12 @@ Log files are available outside the project directory to ensure easier access. T
     ```bash
     composer install
     ```
+7. Create your database inside the container `php bin/console d:d:c`
+8. Run the migrations `php bin/console make:migration` and `php bin/console doctrine:migrations:migrate`
 
+Local address is: http://localhost:8000/
+
+The dockerfile already set up a local server for the application.
 
 ## List of APIs
 

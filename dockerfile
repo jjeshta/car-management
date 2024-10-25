@@ -38,8 +38,9 @@ COPY ./car-mgt-service/.env .
 RUN mkdir -p var/cache var/log var/sessions \
     && chown -R www-data:www-data var
 
+RUN chmod -R 775 var/cache
+
 # Install project dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Change user and group ID for www-data
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
