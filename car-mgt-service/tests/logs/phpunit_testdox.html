@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
+            }
+
+            body > ul > li {
+                font-size: larger;
+            }
+
+            h2 {
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Add Car Command (App\Tests\Application\Command\AddCarCommand)</h2>
+        <ul>
+            <li class="success">Add car command</li>
+        </ul>
+        <h2>Add Car Handler (App\Tests\Application\CommandHandler\AddCarHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully adds car</li>
+            <li class="success">Handle throws domain exception for duplicate registration</li>
+            <li class="success">Handle throws runtime exception on general error</li>
+            <li class="success">Handle exception for invalid date format</li>
+        </ul>
+        <h2>Add Service History Command (App\Tests\Application\Command\AddServiceHistoryCommand)</h2>
+        <ul>
+            <li class="success">Add service history command</li>
+        </ul>
+        <h2>Add Service History Handler (App\Tests\Application\CommandHandler\AddServiceHistoryHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully adds service history</li>
+            <li class="success">Handle throws exception when car not found</li>
+            <li class="success">Handle throws runtime exception on general error</li>
+        </ul>
+        <h2>Car (App\Tests\Domain\Car\Car)</h2>
+        <ul>
+            <li class="success">Car constructor and getters</li>
+            <li class="success">Is fit for road</li>
+            <li class="success">Add service history</li>
+            <li class="success">Add service history with future date throws exception</li>
+            <li class="success">Remove service history</li>
+            <li class="success">Update details</li>
+            <li class="success">List service histories</li>
+        </ul>
+        <h2>Car Controller (App\Tests\Presentation\Controller\CarController)</h2>
+        <ul>
+            <li class="success">Create car successfully</li>
+            <li class="success">Create car with invalid data</li>
+            <li class="success">Create car throws exception</li>
+            <li class="success">Find car successfully</li>
+            <li class="success">Find car validation error</li>
+            <li class="success">Find car not found</li>
+            <li class="success">Find car exception</li>
+            <li class="success">Find cars fit for road successfully</li>
+            <li class="success">Find cars fit for road exception</li>
+            <li class="success">Find cars unfit for road successfully</li>
+            <li class="success">Find cars unfit for road exception</li>
+            <li class="success">Update car successfully</li>
+            <li class="success">Update car not found</li>
+            <li class="success">Update car exception</li>
+            <li class="success">Delete car successfully</li>
+            <li class="success">Delete car not found</li>
+            <li class="success">Delete car exception</li>
+        </ul>
+        <h2>Car DTO (App\Tests\Application\DTO\CarDTO)</h2>
+        <ul>
+            <li class="success">Valid car d t o</li>
+            <li class="defect">Make cannot be blank</li>
+            <li class="defect">Model cannot be blank</li>
+            <li class="defect">Registration number cannot be blank</li>
+            <li class="defect">Registration number pattern invalid</li>
+        </ul>
+        <h2>Car Repository (App\Tests\Infrastructure\Repository\CarRepository)</h2>
+        <ul>
+            <li class="success">Save car</li>
+            <li class="success">Remove car</li>
+            <li class="success">Find by registration number</li>
+            <li class="success">Find cars fit for road</li>
+            <li class="success">Find cars unfit for road</li>
+        </ul>
+        <h2>Find Car Handler (App\Tests\Application\QueryHandler\FindCarHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully finds car</li>
+            <li class="success">Handle car not found throws exception</li>
+            <li class="success">Handle throws runtime exception on error</li>
+        </ul>
+        <h2>Find Car Query (App\Tests\Application\Query\FindCarQuery)</h2>
+        <ul>
+            <li class="success">Valid registration number</li>
+            <li class="defect">Registration number cannot be blank</li>
+            <li class="defect">Invalid pattern registration number</li>
+            <li class="defect">Another invalid pattern registration number</li>
+        </ul>
+        <h2>Find Cars Fit For Road Handler (App\Tests\Application\QueryHandler\FindCarsFitForRoadHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully finds cars fit for road</li>
+            <li class="success">Handle throws runtime exception on error</li>
+        </ul>
+        <h2>Find Cars Unfit For Road Handler (App\Tests\Application\QueryHandler\FindCarsUnfitForRoadHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully finds cars unfit for road</li>
+            <li class="success">Handle throws runtime exception on error</li>
+        </ul>
+        <h2>Fitness (App\Tests\Domain\Car\ValueObject\Fitness)</h2>
+        <ul>
+            <li class="success">Valid fitness</li>
+            <li class="success">Invalid future issued date</li>
+            <li class="success">Valid until before issued date</li>
+        </ul>
+        <h2>Fitness DTO (App\Tests\Application\DTO\FitnessDTO)</h2>
+        <ul>
+            <li class="success">Valid fitness d t o</li>
+            <li class="success">Issued date cannot be in the future</li>
+            <li class="success">Valid until date must be later than issued date</li>
+            <li class="success">Invalid date format for issued</li>
+        </ul>
+        <h2>Insurance (App\Tests\Domain\Car\ValueObject\Insurance)</h2>
+        <ul>
+            <li class="success">Insurance constructor and getters</li>
+            <li class="success">Is valid returns true when date expiry in future</li>
+            <li class="success">Is valid returns false when date expiry in past</li>
+        </ul>
+        <h2>Insurance DTO (App\Tests\Application\DTO\InsuranceDTO)</h2>
+        <ul>
+            <li class="success">Valid insurance d t o</li>
+            <li class="success">Invalid insurance d t o with future date issued</li>
+            <li class="success">Invalid insurance d t o with wrong date format</li>
+            <li class="success">Invalid insurance d t o with date expiry before date issued</li>
+        </ul>
+        <h2>Logger Service (App\Tests\Application\Service\LoggerService)</h2>
+        <ul>
+            <li class="success">Log info</li>
+            <li class="success">Log error</li>
+            <li class="success">Log debug</li>
+        </ul>
+        <h2>Remove Car Command (App\Tests\Application\Command\RemoveCarCommand)</h2>
+        <ul>
+            <li class="success">Remove car command</li>
+        </ul>
+        <h2>Remove Car Handler (App\Tests\Application\CommandHandler\RemoveCarHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully removes car</li>
+            <li class="success">Handle car not found</li>
+            <li class="success">Handle throws runtime exception on error</li>
+        </ul>
+        <h2>Remove Service History Command (App\Tests\Application\Command\RemoveServiceHistoryCommand)</h2>
+        <ul>
+            <li class="success">Remove service history command</li>
+        </ul>
+        <h2>Remove Service History Handler (App\Tests\Application\CommandHandler\RemoveServiceHistoryHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully removes service history</li>
+            <li class="success">Handle throws exception when service history not found</li>
+            <li class="success">Handle throws runtime exception on general error</li>
+        </ul>
+        <h2>Road Tax (App\Tests\Domain\Car\ValueObject\RoadTax)</h2>
+        <ul>
+            <li class="success">Road tax constructor and getters</li>
+            <li class="success">Is valid returns true when valid until in future</li>
+            <li class="success">Is valid returns false when valid until in past</li>
+        </ul>
+        <h2>Road Tax DTO (App\Tests\Application\DTO\RoadTaxDTO)</h2>
+        <ul>
+            <li class="success">Valid road tax d t o</li>
+            <li class="success">Invalid issued date in future</li>
+            <li class="success">Valid until date before issued date</li>
+            <li class="success">Invalid date format for issued</li>
+            <li class="success">Blank valid until date</li>
+        </ul>
+        <h2>Service History (App\Tests\Domain\ServiceHistory\ServiceHistory)</h2>
+        <ul>
+            <li class="success">Service history constructor and getters</li>
+            <li class="success">Service history with future date throws validation error</li>
+            <li class="success">Service history with short description throws validation error</li>
+            <li class="success">Service history with blank description throws validation error</li>
+        </ul>
+        <h2>Service History Controller (App\Tests\Presentation\Controller\ServiceHistoryController)</h2>
+        <ul>
+            <li class="success">Add service history successfully</li>
+            <li class="success">Add service history validation error</li>
+            <li class="success">Add service history exception</li>
+            <li class="success">Delete service history successfully</li>
+            <li class="success">Delete service history not found</li>
+        </ul>
+        <h2>Service History DTO (App\Tests\Application\DTO\ServiceHistoryDTO)</h2>
+        <ul>
+            <li class="success">Service history d t o getters</li>
+            <li class="success">Invalid car registration number</li>
+            <li class="success">Invalid date format</li>
+            <li class="success">Future date validation</li>
+            <li class="success">Description too short</li>
+        </ul>
+        <h2>Service History Repository (App\Tests\Infrastructure\Repository\ServiceHistoryRepository)</h2>
+        <ul>
+            <li class="success">Save service history</li>
+            <li class="success">Remove service history</li>
+            <li class="success">Find service history by id</li>
+            <li class="success">Find service history by id returns null</li>
+        </ul>
+        <h2>Update Car Command (App\Tests\Application\Command\UpdateCarCommand)</h2>
+        <ul>
+            <li class="success">Update car command</li>
+            <li class="success">Update car command with null values</li>
+        </ul>
+        <h2>Update Car Handler (App\Tests\Application\CommandHandler\UpdateCarHandler)</h2>
+        <ul>
+            <li class="success">Handle successfully updates car</li>
+            <li class="success">Handle car not found</li>
+            <li class="success">Handle throws runtime exception on error</li>
+        </ul>
+    </body>
+</html>
