@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="35" assertions="92" errors="0" failures="0" skipped="0" time="0.082913">
+    <testsuite name="Application Tests" tests="35" assertions="92" errors="0" failures="0" skipped="0" time="0.082913">
+      <testsuite name="App\Tests\Application\CommandHandler\UpdateCarHandlerTest" file="/var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php" tests="3" assertions="16" errors="0" failures="0" skipped="0" time="0.031452">
+        <testcase name="testHandleCarNotFound" file="/var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php" line="67" class="App\Tests\Application\CommandHandler\UpdateCarHandlerTest" classname="App.Tests.Application.CommandHandler.UpdateCarHandlerTest" assertions="6" time="0.028070"/>
+        <testcase name="testHandleThrowsRuntimeExceptionOnError" file="/var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php" line="103" class="App\Tests\Application\CommandHandler\UpdateCarHandlerTest" classname="App.Tests.Application.CommandHandler.UpdateCarHandlerTest" assertions="4" time="0.000956"/>
+        <testcase name="testHandleSuccessfullyUpdatesCar" file="/var/www/html/tests/Application/CommandHandler/UpdateCarHandlerTest.php" line="29" class="App\Tests\Application\CommandHandler\UpdateCarHandlerTest" classname="App.Tests.Application.CommandHandler.UpdateCarHandlerTest" assertions="6" time="0.002426"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\CommandHandler\RemoveCarHandlerTest" file="/var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php" tests="3" assertions="15" errors="0" failures="0" skipped="0" time="0.002759">
+        <testcase name="testHandleThrowsRuntimeExceptionOnError" file="/var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php" line="100" class="App\Tests\Application\CommandHandler\RemoveCarHandlerTest" classname="App.Tests.Application.CommandHandler.RemoveCarHandlerTest" assertions="4" time="0.001388"/>
+        <testcase name="testHandleCarNotFound" file="/var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php" line="62" class="App\Tests\Application\CommandHandler\RemoveCarHandlerTest" classname="App.Tests.Application.CommandHandler.RemoveCarHandlerTest" assertions="6" time="0.000668"/>
+        <testcase name="testHandleSuccessfullyRemovesCar" file="/var/www/html/tests/Application/CommandHandler/RemoveCarHandlerTest.php" line="31" class="App\Tests\Application\CommandHandler\RemoveCarHandlerTest" classname="App.Tests.Application.CommandHandler.RemoveCarHandlerTest" assertions="5" time="0.000703"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\QueryHandler\FindCarHandlerTest" file="/var/www/html/tests/Application/QueryHandler/FindCarHandlerTest.php" tests="3" assertions="17" errors="0" failures="0" skipped="0" time="0.003829">
+        <testcase name="testHandleSuccessfullyFindsCar" file="/var/www/html/tests/Application/QueryHandler/FindCarHandlerTest.php" line="29" class="App\Tests\Application\QueryHandler\FindCarHandlerTest" classname="App.Tests.Application.QueryHandler.FindCarHandlerTest" assertions="6" time="0.002395"/>
+        <testcase name="testHandleCarNotFoundThrowsException" file="/var/www/html/tests/Application/QueryHandler/FindCarHandlerTest.php" line="61" class="App\Tests\Application\QueryHandler\FindCarHandlerTest" classname="App.Tests.Application.QueryHandler.FindCarHandlerTest" assertions="6" time="0.000759"/>
+        <testcase name="testHandleThrowsRuntimeExceptionOnError" file="/var/www/html/tests/Application/QueryHandler/FindCarHandlerTest.php" line="90" class="App\Tests\Application\QueryHandler\FindCarHandlerTest" classname="App.Tests.Application.QueryHandler.FindCarHandlerTest" assertions="5" time="0.000674"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\CommandHandler\AddCarHandlerTest" file="/var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php" tests="3" assertions="5" errors="0" failures="0" skipped="0" time="0.010238">
+        <testcase name="testHandleSuccessfullyAddsCar" file="/var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php" line="36" class="App\Tests\Application\CommandHandler\AddCarHandlerTest" classname="App.Tests.Application.CommandHandler.AddCarHandlerTest" assertions="1" time="0.007924"/>
+        <testcase name="testHandleThrowsRuntimeExceptionOnGeneralError" file="/var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php" line="91" class="App\Tests\Application\CommandHandler\AddCarHandlerTest" classname="App.Tests.Application.CommandHandler.AddCarHandlerTest" assertions="2" time="0.001096"/>
+        <testcase name="testHandleThrowsDomainExceptionForDuplicateRegistration" file="/var/www/html/tests/Application/CommandHandler/AddCarHandlerTest.php" line="67" class="App\Tests\Application\CommandHandler\AddCarHandlerTest" classname="App.Tests.Application.CommandHandler.AddCarHandlerTest" assertions="2" time="0.001218"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Command\RemoveServiceHistoryCommandTest" file="/var/www/html/tests/Application/Command/RemoveServiceHistoryCommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000892">
+        <testcase name="testRemoveServiceHistoryCommand" file="/var/www/html/tests/Application/Command/RemoveServiceHistoryCommandTest.php" line="10" class="App\Tests\Application\Command\RemoveServiceHistoryCommandTest" classname="App.Tests.Application.Command.RemoveServiceHistoryCommandTest" assertions="1" time="0.000892"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\QueryHandler\FindCarsFitForRoadHandlerTest" file="/var/www/html/tests/Application/QueryHandler/FindCarsFitForRoadHandlerTest.php" tests="2" assertions="9" errors="0" failures="0" skipped="0" time="0.003087">
+        <testcase name="testHandleSuccessfullyFindsCarsFitForRoad" file="/var/www/html/tests/Application/QueryHandler/FindCarsFitForRoadHandlerTest.php" line="30" class="App\Tests\Application\QueryHandler\FindCarsFitForRoadHandlerTest" classname="App.Tests.Application.QueryHandler.FindCarsFitForRoadHandlerTest" assertions="5" time="0.002084"/>
+        <testcase name="testHandleThrowsRuntimeExceptionOnError" file="/var/www/html/tests/Application/QueryHandler/FindCarsFitForRoadHandlerTest.php" line="63" class="App\Tests\Application\QueryHandler\FindCarsFitForRoadHandlerTest" classname="App.Tests.Application.QueryHandler.FindCarsFitForRoadHandlerTest" assertions="4" time="0.001004"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Command\UpdateCarCommandTest" file="/var/www/html/tests/Application/Command/UpdateCarCommandTest.php" tests="2" assertions="6" errors="0" failures="0" skipped="0" time="0.001094">
+        <testcase name="testUpdateCarCommandWithNullValues" file="/var/www/html/tests/Application/Command/UpdateCarCommandTest.php" line="25" class="App\Tests\Application\Command\UpdateCarCommandTest" classname="App.Tests.Application.Command.UpdateCarCommandTest" assertions="3" time="0.000760"/>
+        <testcase name="testUpdateCarCommand" file="/var/www/html/tests/Application/Command/UpdateCarCommandTest.php" line="10" class="App\Tests\Application\Command\UpdateCarCommandTest" classname="App.Tests.Application.Command.UpdateCarCommandTest" assertions="3" time="0.000334"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Command\RemoveCarCommandTest" file="/var/www/html/tests/Application/Command/RemoveCarCommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000265">
+        <testcase name="testRemoveCarCommand" file="/var/www/html/tests/Application/Command/RemoveCarCommandTest.php" line="10" class="App\Tests\Application\Command\RemoveCarCommandTest" classname="App.Tests.Application.Command.RemoveCarCommandTest" assertions="1" time="0.000265"/>
+      </testsuite>
+      <testsuite name="App\Tests\Domain\Car\CarTest" file="/var/www/html/tests/Domain/Car/CarTest.php" tests="6" assertions="11" errors="0" failures="0" skipped="0" time="0.007244">
+        <testcase name="testAddFutureServiceHistory" file="/var/www/html/tests/Domain/Car/CarTest.php" line="53" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="2" time="0.002614"/>
+        <testcase name="testCannotAddServiceHistoryWithFutureDate" file="/var/www/html/tests/Domain/Car/CarTest.php" line="71" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="2" time="0.000989"/>
+        <testcase name="testIsFitForRoad" file="/var/www/html/tests/Domain/Car/CarTest.php" line="39" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="1" time="0.000826"/>
+        <testcase name="testAddServiceHistory" file="/var/www/html/tests/Domain/Car/CarTest.php" line="44" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="1" time="0.001677"/>
+        <testcase name="testCarInitialization" file="/var/www/html/tests/Domain/Car/CarTest.php" line="32" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="3" time="0.000580"/>
+        <testcase name="testUpdateDetails" file="/var/www/html/tests/Domain/Car/CarTest.php" line="64" class="App\Tests\Domain\Car\CarTest" classname="App.Tests.Domain.Car.CarTest" assertions="2" time="0.000558"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Command\AddCarCommandTest" file="/var/www/html/tests/Application/Command/AddCarCommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.001005">
+        <testcase name="testAddCarCommand" file="/var/www/html/tests/Application/Command/AddCarCommandTest.php" line="11" class="App\Tests\Application\Command\AddCarCommandTest" classname="App.Tests.Application.Command.AddCarCommandTest" assertions="1" time="0.001005"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Command\AddServiceHistoryCommandTest" file="/var/www/html/tests/Application/Command/AddServiceHistoryCommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.001896">
+        <testcase name="testAddServiceHistoryCommand" file="/var/www/html/tests/Application/Command/AddServiceHistoryCommandTest.php" line="11" class="App\Tests\Application\Command\AddServiceHistoryCommandTest" classname="App.Tests.Application.Command.AddServiceHistoryCommandTest" assertions="1" time="0.001896"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\Query\FindCarQueryTest" file="/var/www/html/tests/Application/Query/FindCarQueryTest.php" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.014993">
+        <testcase name="testInvalidPatternRegistrationNumber" file="/var/www/html/tests/Application/Query/FindCarQueryTest.php" line="42" class="App\Tests\Application\Query\FindCarQueryTest" classname="App.Tests.Application.Query.FindCarQueryTest" assertions="1" time="0.013515"/>
+        <testcase name="testRegistrationNumberCannotBeBlank" file="/var/www/html/tests/Application/Query/FindCarQueryTest.php" line="29" class="App\Tests\Application\Query\FindCarQueryTest" classname="App.Tests.Application.Query.FindCarQueryTest" assertions="1" time="0.000535"/>
+        <testcase name="testValidRegistrationNumber" file="/var/www/html/tests/Application/Query/FindCarQueryTest.php" line="19" class="App\Tests\Application\Query\FindCarQueryTest" classname="App.Tests.Application.Query.FindCarQueryTest" assertions="1" time="0.000414"/>
+        <testcase name="testAnotherInvalidPatternRegistrationNumber" file="/var/www/html/tests/Application/Query/FindCarQueryTest.php" line="58" class="App\Tests\Application\Query\FindCarQueryTest" classname="App.Tests.Application.Query.FindCarQueryTest" assertions="1" time="0.000529"/>
+      </testsuite>
+      <testsuite name="App\Tests\Application\DTO\CarDTOTest" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" tests="5" assertions="5" errors="0" failures="0" skipped="0" time="0.004160">
+        <testcase name="testRegistrationNumberPatternInvalid" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" line="110" class="App\Tests\Application\DTO\CarDTOTest" classname="App.Tests.Application.DTO.CarDTOTest" assertions="1" time="0.001762"/>
+        <testcase name="testValidCarDTO" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" line="21" class="App\Tests\Application\DTO\CarDTOTest" classname="App.Tests.Application.DTO.CarDTOTest" assertions="1" time="0.000493"/>
+        <testcase name="testMakeCannotBeBlank" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" line="41" class="App\Tests\Application\DTO\CarDTOTest" classname="App.Tests.Application.DTO.CarDTOTest" assertions="1" time="0.000531"/>
+        <testcase name="testModelCannotBeBlank" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" line="64" class="App\Tests\Application\DTO\CarDTOTest" classname="App.Tests.Application.DTO.CarDTOTest" assertions="1" time="0.000708"/>
+        <testcase name="testRegistrationNumberCannotBeBlank" file="/var/www/html/tests/Application/DTO/CarDTOTest.php" line="87" class="App\Tests\Application\DTO\CarDTOTest" classname="App.Tests.Application.DTO.CarDTOTest" assertions="1" time="0.000666"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
