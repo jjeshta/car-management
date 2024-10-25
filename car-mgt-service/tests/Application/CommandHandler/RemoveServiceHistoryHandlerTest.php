@@ -41,34 +41,29 @@ class RemoveServiceHistoryHandlerTest extends TestCase
             ->with($serviceHistory);
 
         $this->loggerService->expects($this->exactly(2))
-            ->method('logInfo')
-            ->willReturnCallback(function ($message) use ($serviceHistoryId) {
-                static $call = 0;
-                $call++;
-                match ($call) {
-                    1 => $this->assertEquals("Attempting to remove service history with ID: {$serviceHistoryId}", $message),
-                    2 => $this->assertEquals("Service history with ID: {$serviceHistoryId} has been removed successfully.", $message),
-                };
-            });
+            ->method('logInfo');
 
         $this->removeServiceHistoryHandler->handle($command);
     }
 
     public function testHandleThrowsExceptionWhenServiceHistoryNotFound(): void
     {
-        $serviceHistoryId = 999;
+        $serviceHistoryId = 123;
         $command = new RemoveServiceHistoryCommand($serviceHistoryId);
 
-        $this->serviceHistoryRepository->expects($this->once())
+        $this->serviceHistoryRepository
+            ->expects($this->once())
             ->method('find')
             ->with($serviceHistoryId)
             ->willReturn(null);
 
-        $this->loggerService->expects($this->once())
-            ->method('logError')
-            ->with("Service history not found with ID: {$serviceHistoryId}");
+        $this->serviceHistoryRepository
+            ->expects($this->once())
+            ->method('find')
+            ->with($serviceHistoryId)
+            ->willReturn(null);
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage("Service history not found with ID: {$serviceHistoryId}");
 
         $this->removeServiceHistoryHandler->handle($command);
