@@ -107,4 +107,23 @@ class AddCarHandlerTest extends TestCase
 
         $this->addCarHandler->handle($command);
     }
+
+    public function testHandleExceptionForInvalidDateFormat(): void
+    {
+        $carDTO = new CarDTO(
+            'Toyota',
+            'Corolla',
+            '1234 AB 56',
+            new InsuranceDTO('InsuranceCo', 'INS123', 'invalid-date', '2024-01-01 00:00:00', '2023-01-01 00:00:00'),
+            new FitnessDTO('2023-01-01 00:00:00', '2024-01-01 00:00:00'),
+            new RoadTaxDTO('2023-01-01 00:00:00', '2024-01-01 00:00:00')
+        );
+
+        $command = new AddCarCommand($carDTO);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Invalid date format: invalid-date');
+
+        $this->addCarHandler->handle($command);
+    }
 }
