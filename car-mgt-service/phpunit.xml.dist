@@ -14,8 +14,15 @@
             <directory>src</directory>
         </include>
     </source>
+    <logging>
+    <junit outputFile="tests/logs/phpunit.junit.xml"/>
+    <teamcity outputFile="tests/logs/phpunit.teamcity.log"/>
+    <testdoxHtml outputFile="tests/logs/phpunit_testdox.html"/>
+</logging>
+
     <php>
-        <env name="APP_ENV" value="testing"/>
+        <env name="APP_ENV" value="test" force="true"/>
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_STORE" value="array"/>
