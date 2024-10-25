@@ -21,7 +21,6 @@ services:
             - '../src/Kernel.php'
 
 
-    App\Domain\ServiceHistory\ServiceHistoryRepositoryInterface: '@App\Infrastructure\Repository\ServiceHistoryRepository'
     App\Application\Service\LoggerService:
         arguments:
             $appLogger: '@monolog.logger.app_info'
