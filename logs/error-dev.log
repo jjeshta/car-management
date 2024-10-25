@@ -20,3 +20,5 @@
 [2024-10-23T08:50:50.049291+00:00] app_error.ERROR: Exception thrown A car with this registration number '6597 EZ 19' already exists. [] []
 [2024-10-23T08:50:54.197928+00:00] app_error.ERROR: Duplicate registration number detected: '6597 EZ 19' [] []
 [2024-10-23T08:50:54.198064+00:00] app_error.ERROR: Exception thrown A car with this registration number '6597 EZ 19' already exists. [] []
+[2024-10-25T12:24:15.590349+00:00] app_error.ERROR: An error occurred while finding unfit cars for road: An exception occurred in the driver: SQLSTATE[HY000] [1049] Unknown database 'car_mgt' [] []
+[2024-10-25T12:24:33.067868+00:00] app_error.ERROR: An error occurred while finding unfit cars for road: An exception occurred while executing a query: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'car_mgt.cars' doesn't exist [] []
